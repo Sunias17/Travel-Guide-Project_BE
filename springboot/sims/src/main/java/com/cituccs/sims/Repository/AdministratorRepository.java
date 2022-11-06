@@ -4,10 +4,9 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import com.cituccs.sims.Entity.AdministratorEntity;
-import com.cituccs.sims.Entity.StudentEntity;
 
 @Repository
-public interface AdministratorRepository  extends  JpaRepository<AdministratorEntity, Integer>{
+public interface AdministratorRepository  extends  JpaRepository<AdministratorEntity, String>{
 	
-	StudentEntity findByUsername(String username);
+	AdministratorEntity findByUsername(String username);
 }
