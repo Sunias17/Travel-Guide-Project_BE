@@ -36,14 +36,15 @@ public class FavoritesService {
 			throw new Exception("Error");
 		}
 	}
-	/* missing parameters and body
-	public FavoritesEntity insertFavorites() {
-		
-	}
-	*/
-	public List<FavoritesEntity> getUserFavorites(UserEntity user){
-		//return frepo.findAll();
+	
+	public FavoritesEntity insertFavorites(FavoritesEntity favorite) {
+		favorite.setStatus(true);
+		return frepo.save(favorite);
 	}
 	
+	//probably wrong
+	public List<FavoritesEntity> getUserFavorites(UserEntity user){
+		return frepo.findAll(user);
+	}
 	
 }
