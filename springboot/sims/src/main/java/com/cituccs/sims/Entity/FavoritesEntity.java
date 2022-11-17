@@ -15,7 +15,13 @@ public class FavoritesEntity {
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
 	private int favoriteid;
 	private boolean status;
+	
+	@ManyToOne
+	@JoinColumn(name="guidepostid")
 	private GuidepostEntity guidepost;
+	
+	@ManyToOne
+	@JoinColumn(name="username")
 	private UserEntity user;
 	
 	public FavoritesEntity() {}
