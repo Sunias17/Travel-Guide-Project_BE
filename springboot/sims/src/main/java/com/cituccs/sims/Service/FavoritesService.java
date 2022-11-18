@@ -4,47 +4,55 @@ import java.util.List;
 import java.util.NoSuchElementException;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.cituccs.sims.Entity.FavoritesEntity;
-import com.cituccs.sims.Entity.UserEntity;
 import com.cituccs.sims.Repository.FavoritesRepository;
 
+@Service
 public class FavoritesService {
 
 	@Autowired
 	FavoritesRepository frepo;
 	
-	//missing parameters and body
-	public FavoritesEntity putFavorite() throws Exception{
-		FavoritesEntity favorite = new FavoritesEntity();
+	public FavoritesEntity putFavorites(int favoritesid, FavoritesEntity newFavoriteDetails) throws Exception{
+		FavoritesEntity favorites = new FavoritesEntity();
 		
 		try {
-			favorite.setStatus(true);
-			return frepo.save(favorite);
+			favorites = frepo.findById(favoritesid).get();
+			favorites.setStatus(newFavoriteDetails.isStatus());
+			return frepo.save(favorites);
 		}catch(NoSuchElementException nex) {
-			throw new Exception("Error");
+			throw new Exception("ID Number "+ favoritesid +" does not exist!");
 		}
-	}
-	//missing parameters and body
-	public FavoritesEntity deleteFavorite() throws Exception{
-		FavoritesEntity favorite = new FavoritesEntity();
 		
-		try {
-			favorite.setStatus(false);
-			return frepo.save(favorite);
-		}catch(NoSuchElementException nex) {
-			throw new Exception("Error");
-		}
 	}
 	
-	public FavoritesEntity insertFavorites(FavoritesEntity favorite) {
-		favorite.setStatus(true);
-		return frepo.save(favorite);
+	public String deleteFavorites(int favoritesid) {
+		String msg;
+		if(frepo.findById(favoritesid) !=null) {
+			frepo.deleteById(favoritesid);
+			msg = "Student ID Number " + favoritesid + " is successfully deleted!";
+		}else 
+			msg = "Student ID Number " + favoritesid + " is NOT found!";
+		
+		return msg;
 	}
 	
-	//probably wrong
-	public List<FavoritesEntity> getUserFavorites(UserEntity user){
-		return frepo.findAll(user);
+	public FavoritesEntity insertFavorites(FavoritesEntity favorites) {
+		return frepo.save(favorites);
 	}
 	
+	public List<FavoritesEntity> getAllFavorites(){
+		return frepo.findAll();
+	}
+	
+	
+//	public FavoritesEntity findById(int id) {
+//		if(srepo.findByFirstname(firstname) !=null)
+//			return srepo.findByFirstname(firstname);
+//		else
+//			return null;
+//	}
+
 }
