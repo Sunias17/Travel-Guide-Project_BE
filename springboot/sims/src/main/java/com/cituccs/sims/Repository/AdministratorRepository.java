@@ -8,5 +8,4 @@ import com.cituccs.sims.Entity.AdministratorEntity;
 @Repository
 public interface AdministratorRepository  extends  JpaRepository<AdministratorEntity, String>{
 	
-	AdministratorEntity findByUsername(String username);
 }

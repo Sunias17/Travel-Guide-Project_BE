@@ -8,4 +8,6 @@ import com.cituccs.sims.Entity.FavoritesEntity;
 @Repository
 public interface FavoritesRepository  extends JpaRepository<FavoritesEntity, Integer>{
 
+	
+	
 }
