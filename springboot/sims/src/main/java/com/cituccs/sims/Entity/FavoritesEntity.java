@@ -1,11 +1,13 @@
 package com.cituccs.sims.Entity;
 
-import javax.persistence.CascadeType;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+//import javax.persistence.JoinColumn;
+//import javax.persistence.ManyToOne;
 
 @Entity
 @Table(name="tbl_favorites")
@@ -16,25 +18,30 @@ public class FavoritesEntity {
 	private int favoriteid;
 	private boolean status;
 	
-	@ManyToOne
-	@JoinColumn(name="guidepostid")
-	private GuidepostEntity guidepost;
-	
-	@ManyToOne
-	@JoinColumn(name="username")
-	private UserEntity user;
+//	@ManyToOne
+//	@JoinColumn(name="username")
+//	UserEntity username;
+//	
+//	@ManyToOne
+//	@JoinColumn(name="guidepostid")
+//	GuidepostEntity guidepostid;
 	
 	public FavoritesEntity() {}
-	
-	public FavoritesEntity(int favoriteid, boolean status, GuidepostEntity guidepost, UserEntity user) {
+
+	public FavoritesEntity(int favoriteid, boolean status /*, UserEntity username, GuidepostEntity guidepostid */) {
 		super();
 		this.favoriteid = favoriteid;
 		this.status = status;
-		this.guidepost = guidepost;
-		this.user = user;
+//		this.username = username;
+//		this.guidepostid = guidepostid;
 	}
 
-	public boolean getStatus() {
+	public int getFavoriteid() {
+		return favoriteid;
+	}
+
+
+	public boolean isStatus() {
 		return status;
 	}
 
@@ -42,18 +49,21 @@ public class FavoritesEntity {
 		this.status = status;
 	}
 
-	public int getFavoriteid() {
-		return favoriteid;
-	}
-
-	public GuidepostEntity getGuidepost() {
-		return guidepost;
-	}
-
-	public UserEntity getUser() {
-		return user;
-	}
-	
+//	public UserEntity getUsername() {
+//		return username;
+//	}
+//
+//	public void setUsername(UserEntity username) {
+//		this.username = username;
+//	}
+//
+//	public GuidepostEntity getGuidepostid() {
+//		return guidepostid;
+//	}
+//
+//	public void setGuidepostid(GuidepostEntity guidepostid) {
+//		this.guidepostid = guidepostid;
+//	}
 	
 	
 }
