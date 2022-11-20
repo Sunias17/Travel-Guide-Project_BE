@@ -17,24 +17,28 @@ public class CommentEntity {
 	@Id
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
 	private int commentId;
-	
 	private String code;
 	private String comment;
-	private int unit;
+	private GuidepostEntity guidepost;
+
 	
 	
 	@ManyToOne
 	@JoinColumn(name="id")
-	GuidepostEntity guidePost;
+	GuidepostEntity guidepost;
 	
+	@ManyToOne
+	@JoinColumn(name="id")
+	UserEntity user;
+
 	public CourseEntity() {}
 
 
 	public CommentEntity(int commentId, String comment, GuidepostEntity guidePost) {
 		super();
-		this.commentId = courseid;
+		this.commentId = commentId;
 		this.comment = comment;
-		this.guidePost = guidePost;
+		this.guidepost	 = guidePost;
 	}
 
 

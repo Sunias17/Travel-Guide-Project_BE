@@ -9,6 +9,8 @@ import com.cituccs.sims.Entity.CourseEntity;
 public interface CommentRepository extends  JpaRepository<CommentEntity, Integer>{
 
 	CommentEntity findById(Integer commentId);
+	List<CommentEntity> findUserComments(Integer userId);,
+	
 	
 }
 
