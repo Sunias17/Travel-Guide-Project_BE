@@ -1,5 +1,4 @@
 package com.cituccs.sims.Entity;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,32 +12,32 @@ import javax.persistence.Table;
 @Table(name="tbl_comment")
 public class CommentEntity {
 
-	
 	@Id
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
 	private int commentId;
-	private String code;
 	private String comment;
-	private GuidepostEntity guidepost;
+	private String test;
+//	private GuidepostEntity guidepost;
 
 	
+//Connect when we have guidePost entity
 	
-	@ManyToOne
-	@JoinColumn(name="id")
-	GuidepostEntity guidepost;
+//	@ManyToOne
+//	@JoinColumn(name="id")
+//	GuidepostEntity guidepost;
 	
-	@ManyToOne
-	@JoinColumn(name="id")
-	UserEntity user;
+//	@ManyToOne
+//	@JoinColumn(name="id")
+//	UserEntity user;
 
-	public CourseEntity() {}
+	public CommentEntity(){}
 
 
-	public CommentEntity(int commentId, String comment, GuidepostEntity guidePost) {
+	public CommentEntity(int commentId, String comment, String test) {
 		super();
 		this.commentId = commentId;
 		this.comment = comment;
-		this.guidepost	 = guidePost;
+		this.test = test;
 	}
 
 
@@ -47,6 +46,9 @@ public class CommentEntity {
 	}
 
 
+	public void setTest(String test) {
+		this.test = test;
+	}
 
 	
 	public String getComment() {
@@ -58,21 +60,11 @@ public class CommentEntity {
 		this.comment = description;
 	}
 	
-	
-
-	public GuidepostEntity getGuidePost() {
-		return student;
-	}
-
-
-	public void setGuidePost(GuidepostEntity guidePost) {
-		this.guidePost = guidePost;
-	}
 
 
 	@Override
 	public String toString() {
-		return "CommentEntity [commentID:" + courseid + ", comment:" + comment +"]";
+		return "CommentEntity [commentID:" + commentId + ", comment:" + comment +"]";
 	}
 
 }
