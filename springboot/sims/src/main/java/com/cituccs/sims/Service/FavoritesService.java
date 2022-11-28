@@ -32,9 +32,9 @@ public class FavoritesService {
 		String msg;
 		if(frepo.findById(favoritesid) !=null) {
 			frepo.deleteById(favoritesid);
-			msg = "Student ID Number " + favoritesid + " is successfully deleted!";
+			msg = "ID Number " + favoritesid + " is successfully deleted!";
 		}else 
-			msg = "Student ID Number " + favoritesid + " is NOT found!";
+			msg = "ID Number " + favoritesid + " is NOT found!";
 		
 		return msg;
 	}
@@ -47,6 +47,14 @@ public class FavoritesService {
 		return frepo.findAll();
 	}
 	
+	
+	public List<FavoritesEntity> findByUsername(UserEntity username){
+		if(frepo.findByUser(username) !=null)
+			return frepo.findByUser(username);
+		else
+			return null;
+	}
+
 	
 //	public FavoritesEntity findById(int id) {
 //		if(srepo.findByFirstname(firstname) !=null)
