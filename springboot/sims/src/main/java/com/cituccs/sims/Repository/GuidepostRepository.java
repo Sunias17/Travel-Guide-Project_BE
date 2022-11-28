@@ -1,4 +1,5 @@
-package com.travelguide.sims_app.Repository;
+//package com.travelguide.sims_app.Repository;
+package com.cituccs.sims.Repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
