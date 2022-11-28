@@ -33,6 +33,4 @@ public class AdministratorEntity {
 		return password;
 	}
 	
-	
-	
 }
