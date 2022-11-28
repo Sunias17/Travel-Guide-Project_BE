@@ -40,24 +40,33 @@ public class AdministratorService {
 		return msg;
 	}
 	
-	public AdministratorEntity insertAdministrator(AdministratorEntity admin) {
-		return arepo.save(admin);
+	public AdministratorEntity insertAdministrator(AdministratorEntity admin) throws Exception{
+		
+		try {
+			arepo.findById(admin.getUsername()).get();
+			throw new Exception("Username "+ admin.getUsername() +" already exist!");
+		}catch(NoSuchElementException nex) {
+			return arepo.save(admin);
+		}
+		
 	}
 	
 	public List<AdministratorEntity> getAllAdministrator(){
 		return arepo.findAll();
 	}
 	
-//	public boolean checkLoginDetails(String username, String password) {
-//		AdministratorEntity admin = new AdministratorEntity();
-//	
-//		if(arepo.findByUsername(username) !=null){
-//			admin = arepo.findByUsername(username);
-//			if(admin.getPassword().equals(password)) 
-//				return true;
-//			else
-//				return false;
-//		}else
-//			return false; 
-//	}
+	public boolean checkLoginDetails(String username, String password) {
+		AdministratorEntity admin = new AdministratorEntity();
+	
+		if(arepo.findById(username) !=null){
+			admin = arepo.findById(username).get();
+			if(admin.getPassword().equals(password)) 
+				return true;
+			else
+				return false;
+		}else
+			return false; 
+	}
+	
+	
 }
