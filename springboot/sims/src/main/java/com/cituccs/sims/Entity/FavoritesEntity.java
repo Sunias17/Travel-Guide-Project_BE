@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 //import javax.persistence.JoinColumn;
 //import javax.persistence.ManyToOne;
@@ -18,21 +20,21 @@ public class FavoritesEntity {
 	private int favoriteid;
 	private boolean status;
 	
-//	@ManyToOne
-//	@JoinColumn(name="username")
-//	UserEntity username;
-//	
+	@ManyToOne
+	@JoinColumn(name="username")
+	UserEntity user;
+	
 //	@ManyToOne
 //	@JoinColumn(name="guidepostid")
 //	GuidepostEntity guidepostid;
 	
 	public FavoritesEntity() {}
 
-	public FavoritesEntity(int favoriteid, boolean status /*, UserEntity username, GuidepostEntity guidepostid */) {
+	public FavoritesEntity(int favoriteid, boolean status, UserEntity user/*, GuidepostEntity guidepostid */) {
 		super();
 		this.favoriteid = favoriteid;
 		this.status = status;
-//		this.username = username;
+		this.user = user;
 //		this.guidepostid = guidepostid;
 	}
 
@@ -49,14 +51,14 @@ public class FavoritesEntity {
 		this.status = status;
 	}
 
-//	public UserEntity getUsername() {
-//		return username;
-//	}
-//
-//	public void setUsername(UserEntity username) {
-//		this.username = username;
-//	}
-//
+	public UserEntity getUser() {
+		return user;
+	}
+
+	public void setUser(UserEntity user) {
+		this.user = user;
+	}
+
 //	public GuidepostEntity getGuidepostid() {
 //		return guidepostid;
 //	}
@@ -64,6 +66,5 @@ public class FavoritesEntity {
 //	public void setGuidepostid(GuidepostEntity guidepostid) {
 //		this.guidepostid = guidepostid;
 //	}
-	
 	
 }
