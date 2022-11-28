@@ -1,5 +1,5 @@
-//package com.travelguide.sims_app.Service;
-package com.cituccs.sims.Service;
+//package com.travelguide.sims_app.Controller;
+package com.cituccs.sims.controller;
 
 import java.util.List;
 
