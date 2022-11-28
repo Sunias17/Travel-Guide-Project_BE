@@ -1,4 +1,4 @@
-package com.cituccs.tims.Service;
+package com.cituccs.sims.Service;
 
 import java.util.List;
 import java.util.NoSuchElementException;
