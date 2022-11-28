@@ -1,3 +1,4 @@
+//package com.travelguide.sims_app.Entity;
 package com.cituccs.sims.Entity;
 
 import javax.persistence.Entity;
