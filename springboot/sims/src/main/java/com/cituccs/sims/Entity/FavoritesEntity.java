@@ -22,9 +22,9 @@ public class FavoritesEntity {
 	@JoinColumn(name="username")
 	UserEntity user;
 	
-//	@ManyToOne
-//	@JoinColumn(name="guidepostid")
-//	GuidepostEntity guidepostid;
+	@ManyToOne
+	@JoinColumn(name="guidepostid")
+	GuidepostEntity guidepostid;
 	
 	public FavoritesEntity() {}
 
@@ -33,7 +33,7 @@ public class FavoritesEntity {
 		this.favoriteid = favoriteid;
 		this.status = status;
 		this.user = user;
-//		this.guidepostid = guidepostid;
+		this.guidepostid = guidepostid;
 	}
 
 	public int getFavoriteid() {
@@ -57,12 +57,12 @@ public class FavoritesEntity {
 		this.user = user;
 	}
 
-//	public GuidepostEntity getGuidepostid() {
-//		return guidepostid;
-//	}
-//
-//	public void setGuidepostid(GuidepostEntity guidepostid) {
-//		this.guidepostid = guidepostid;
-//	}
+	public GuidepostEntity getGuidepostid() {
+		return guidepostid;
+	}
+
+	public void setGuidepostid(GuidepostEntity guidepostid) {
+		this.guidepostid = guidepostid;
+	}
 	
 }
