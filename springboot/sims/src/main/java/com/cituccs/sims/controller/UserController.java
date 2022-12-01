@@ -55,6 +55,11 @@ public class UserController {
 	public String deleteStudent(@PathVariable String username){
 		return userv.deleteUser(username);
 	}
+	
+		@GetMapping("/getUser")
+	public UserEntity findByUsername(@RequestParam String username) {
+		return userv.findByUsername(username);
+	}
 
 	@GetMapping("/loginUser")
 	public Boolean loginUser(@RequestBody UserEntity user){

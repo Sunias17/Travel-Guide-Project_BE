@@ -52,4 +52,9 @@ public class AdministratorController {
 	public String deleteAdministrator(@PathVariable String username){
 		return aserv.deleteAdministrator(username);
 	}
+	
+	@GetMapping("/loginAdministrator")
+	public boolean checkLoginDetails (@RequestParam String username, String password){
+		return aserv.checkLoginDetails(username, password);
+	}
 }

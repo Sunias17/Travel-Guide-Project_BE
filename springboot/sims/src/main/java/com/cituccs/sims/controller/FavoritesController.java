@@ -54,4 +54,11 @@ public class FavoritesController {
 	public String deleteFavorites(@PathVariable int id){
 		return fserv.deleteFavorites(id);
 	}
+	
+	@GetMapping("/getUserFavorites")
+	public List<FavoritesEntity> findByUsername(@RequestParam String username){
+		UserEntity user = new UserEntity();
+		user = userv.findByUsername(username);
+		return fserv.findByUsername(user);
+	}
 }

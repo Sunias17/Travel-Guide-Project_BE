@@ -5,9 +5,6 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 
-
-
-
 @Entity
 @Table(name="tbl_user")
 public class UserEntity {
@@ -95,7 +92,5 @@ public class UserEntity {
 	public void setBanned(boolean isBanned) {
 		this.isBanned = isBanned;
 	}
-
 	
-
 }

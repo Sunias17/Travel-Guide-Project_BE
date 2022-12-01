@@ -55,6 +55,9 @@ public class UserService {
 		return urepo.findById(uName).get();
 	}
 	
+	public UserEntity findByUsername(String username) {
+		return urepo.findById(username).get();
+	}
 	
 //	public UserEntity findById(int id) {
 //		if(srepo.findByFirstname(firstname) !=null)
