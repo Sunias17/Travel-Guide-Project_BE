@@ -1,4 +1,4 @@
-package com.cituccs.tims.Controller;
+package com.cituccs.sims.controller;
 
 
 import java.util.List;
@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.cituccs.tims.Entity.UserEntity;
-import com.cituccs.tims.Service.UserService;
+import com.cituccs.sims.Entity.UserEntity;
+import com.cituccs.sims.Service.UserService;
 
 
 @RestController
@@ -54,6 +54,24 @@ public class UserController {
 	@DeleteMapping("/deleteUser/{username}")
 	public String deleteStudent(@PathVariable String username){
 		return userv.deleteUser(username);
+	}
+
+	@GetMapping("/loginUser")
+	public Boolean loginUser(@RequestBody UserEntity user){
+		UserEntity rUser = userv.getUser(user);
+		
+		String inputPassword = user.getPassword();
+		
+		String dbPassword = rUser.getPassword();
+
+		if(dbPassword.equals(inputPassword)){
+			return true;
+		}else{
+//			return "inputPassword: " + inputPassword +" dbPassword: " + dbPassword ;
+			return false;
+				
+		}
+
 	}
 
 }

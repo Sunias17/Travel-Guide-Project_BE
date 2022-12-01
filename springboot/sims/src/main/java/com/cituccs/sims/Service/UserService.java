@@ -1,4 +1,4 @@
-package com.cituccs.tims.Service;
+package com.cituccs.sims.Service;
 
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -6,8 +6,8 @@ import java.util.NoSuchElementException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.cituccs.tims.Entity.UserEntity;
-import com.cituccs.tims.Repository.UserRepository;
+import com.cituccs.sims.Entity.UserEntity;
+import com.cituccs.sims.Repository.UserRepository;
 
 @Service
 public class UserService {
@@ -22,7 +22,7 @@ public class UserService {
 			user = urepo.findById(username).get();
 			user.setPassword(newUserDetails.getPassword());
 			user.setName(newUserDetails.getName());
-			user.setPhonenumber(newUserDetails.getPhonenumber());
+			user.setPhoneNumber(newUserDetails.getPhoneNumber());
 			user.setEmail(newUserDetails.getEmail());
 			return urepo.save(user);
 		}catch(NoSuchElementException nex) {
@@ -48,6 +48,11 @@ public class UserService {
 	
 	public List<UserEntity> getAllUser(){
 		return urepo.findAll();
+	}
+
+	public UserEntity getUser(UserEntity user){
+		String uName = user.getUsername();
+		return urepo.findById(uName).get();
 	}
 	
 	
